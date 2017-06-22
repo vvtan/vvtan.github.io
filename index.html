@@ -160,19 +160,155 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-new-page" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-mysql_index" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/27/new-page/">基础邮件协议</a>
+      <a class="article-title" href="/2017/06/22/mysql_index/">MySQL索引</a>
     </h1>
   
 
         
-        <a href="/2015/01/27/new-page/" class="archive-article-date">
+        <a href="/2017/06/22/mysql_index/" class="archive-article-date">
+  	<time datetime="2017-06-22T03:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h1><h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p><strong>MySQL官方对索引的定义为：索引（Index）是帮助MySQL高效获取数据的数据结构。提取句子主干，就可以得到索引的本质：索引是数据结构。</strong></p>
+<blockquote>
+<p>数据库查询是数据库的最主要功能之一。我们都希望查询数据的速度能尽可能的快，因此数据库系统的设计者会从查询算法的角度进行优化。最基本的查询算法当然是顺序查找（linear search），这种复杂度为O(n)的算法在数据量很大时显然是糟糕的，好在计算机科学的发展提供了很多更优秀的查找算法，例如二分查找（binary search）、二叉树查找（binary tree search）等。如果稍微分析一下会发现，每种查找算法都只能应用于特定的数据结构之上，例如二分查找要求被检索数据有序，而二叉树查找只能应用于二叉查找树上，但是数据本身的组织结构不可能完全满足各种数据结构（例如，理论上不可能同时将两列都按顺序进行组织），所以，在数据之外，数据库系统还维护着满足特定查找算法的数据结构，这些数据结构以某种方式引用（指向）数据，这样就可以在这些数据结构上实现高级查找算法。这种数据结构，就是索引。</p>
+</blockquote>
+<h2 id="索引的分类"><a href="#索引的分类" class="headerlink" title="索引的分类"></a>索引的分类</h2><ul>
+<li>B-Tree 索引：最常见的索引类型，大部分引擎都支持B树索引。</li>
+<li>HASH 索引：只有Memory引擎支持，使用场景简单。</li>
+<li>R-Tree 索引(空间索引)：空间索引是MyISAM的一种特殊索引类型，主要用于地理空间数据类型。</li>
+<li>Full-text (全文索引)：全文索引也是MyISAM的一种特殊索引类型，主要用于全文索引，InnoDB从MYSQL5.6版本提供对全文索引的支持。</li>
+</ul>
+<p><strong>MyISAM、InnoDB引擎、Memory三个常用引擎类型比较</strong></p>
+<table>
+<thead>
+<tr>
+<th>索引</th>
+<th>MyISAM引擎</th>
+<th>InnoDB引擎</th>
+<th>Memory引擎</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>B-Tree索引</td>
+<td>支持</td>
+<td>支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>Hash索引</td>
+<td>不支持</td>
+<td>不支持</td>
+<td>支持</td>
+</tr>
+<tr>
+<td>R-Tree索引</td>
+<td>支持</td>
+<td>不支持</td>
+<td>不支持</td>
+</tr>
+<tr>
+<td>Full-Text索引</td>
+<td>不支持</td>
+<td>5.6版本后支持</td>
+<td>不支持</td>
+</tr>
+</tbody>
+</table>
+<h2 id="B-Tree索引"><a href="#B-Tree索引" class="headerlink" title="B-Tree索引"></a>B-Tree索引</h2><p>当人们谈论索引的时候，如果没有特别指明类型，那多半说的是B-Tree索引，它使用B-Tree数据结构来存储数据。大多数MySQL引擎都支持这种索引。Archive引擎是一个例外：5.1之前Archive不支持任何索引，直到5.1才开始支持单个自增列（AUTO_INCREMENT）的索引。</p>
+<p>我们使用术语“B-Tree”，是因为MySQL在CREATETABLE和其他语句中也使用该关键字。不过，底层的存储引擎也可能使用不同的存储结构，例如，NDB集群存储引擎内部实际上使用了T-Tree结构存储这种索引，即使其名字是BTREE；InnoDB则使用的是B+Tree。</p>
+<p>存储引擎以不同的方式使用B-Tree索引，性能也各有不同，各有优劣。例如，MyISAM使用前缀压缩技术使得索引更小，但InnoDB则按照原数据格式进行存储。再如MyISAM索引通过数据的物理位置引用被索引的行，而InnoDB则根据主键引用被索引的行。B-Tree通常意味着所有的值都是按顺序存储的，并且每一个叶子页到根的距离相同。</p>
+<h3 id="B-Tree索引的限制"><a href="#B-Tree索引的限制" class="headerlink" title="B-Tree索引的限制"></a>B-Tree索引的限制</h3><ol>
+<li><p>如果不是按照索引的最左列开始查找，则无法使用索引。例如上面例子中的索引无法用于查找名字为Bill的人，也无法查找某个特定生日的人，因为这两列都不是最左数据列。类似地，也无法查找姓氏以某个字母结尾的人。</p>
+</li>
+<li><p>不能跳过索引中的列。也就是说，前面所述的索引无法用于查找姓为Smith并且在某个特定日期出生的人。如果不指定名（first_name），则MySQL只能使用索引的第一列。</p>
+</li>
+<li><p>如果查询中有某个列的范围查询，则其右边所有列都无法使用索引优化查找。例如有查询WHERElast_name=’Smith’ANDfrst_nameLIKE’J％’ANDdob=’1976-12-23’，这个查询只能使用索引的前两列，因为这里LIKE是一个范围条件（但是服务器可以把其余列用于其他目的）。如果范围查询列值的数量有限，那么可以通过使用多个等于条件来代替范围条件。在本章的索引案例学习部分，我们将演示一个详细的案例。</p>
+</li>
+</ol>
+<h2 id="哈希索引"><a href="#哈希索引" class="headerlink" title="哈希索引"></a>哈希索引</h2><p>哈希索引（hashindex）基于哈希表实现，只有精确匹配索引所有列的查询才有效(4)。对于每一行数据，存储引擎都会对所有的索引列计算一个哈希码（hashcode），哈希码是一个较小的值，并且不同键值的行计算出来的哈希码也不一样。哈希索引将所有的哈希码存储在索引中，同时在哈希表中保存指向每个数据行的指针。</p>
+<p>在MySQL中，只有Memory引擎显式支持哈希索引。这也是Memory引擎表的默认索引类型，Memory引擎同时也支持B-Tree索引。值得一提的是，Memory引擎是支持非唯一哈希索引的，这在数据库世界里面是比较与众不同的。如果多个列的哈希值相同，索引会以链表的方式存放多个记录指针到同一个哈希条目中。</p>
+<h3 id="哈希索引的限制"><a href="#哈希索引的限制" class="headerlink" title="哈希索引的限制"></a>哈希索引的限制</h3><ol>
+<li>哈希索引只包含哈希值和行指针，而不存储字段值，所以不能使用索引中的值来避免读取行。不过，访问内存中的行的速度很快，所以大部分情况下这一点对性能的影响并不明显。</li>
+<li>哈希索引数据并不是按照索引值顺序存储的，所以也就无法用于排序。</li>
+<li>哈希索引也不支持部分索引列匹配查找，因为哈希索引始终是使用索引列的全部内容来计算哈希值的。例如，在数据列（A,B）上建立哈希索引，如果查询只有数据列A，则无法使用该索引。哈希索引只支持等值比较查询，包括=、IN()、&lt;=&gt;（注意&lt;&gt;和&lt;=&gt;是不同的操作）。也不支持任何范围查询，例如WHEREprice&gt;100。</li>
+<li>访问哈希索引的数据非常快，除非有很多哈希冲突（不同的索引列值却有相同的哈希值）。当出现哈希冲突的时候，存储引擎必须遍历链表中所有的行指针，逐行进行比较，直到找到所有符合条件的行。</li>
+<li>如果哈希冲突很多的话，一些索引维护操作的代价也会很高。例如，如果在某个选择性很低（哈希冲突很多）的列上建立哈希索引，那么当从表中删除一行时，存储引擎需要遍历对应哈希值的链表中的每一行，找到并删除对应行的引用，冲突越多，代价越大。</li>
+</ol>
+<h2 id="B-Tree索引-哈希索引"><a href="#B-Tree索引-哈希索引" class="headerlink" title="B-Tree索引+哈希索引"></a>B-Tree索引+哈希索引</h2><p>InnoDB引擎有一个特殊的功能叫做“自适应哈希索引（adaptivehashindex）”。当InnoDB注意到某些索引值被使用得非常频繁时，它会在内存中基于B-Tree索引之上再创建一个哈希索引，这样就让B-Tree索引也具有哈希索引的一些优点，比如快速的哈希查找。这是一个完全自动的、内部的行为，用户无法控制或者配置，不过如果有必要，完全可以关闭该功能。</p>
+<p>创建自定义哈希索引。如果存储引擎不支持哈希索引，则可以模拟像InnoDB一样创建哈希索引，这可以享受一些哈希索引的便利，例如只需要很小的索引就可以为超长的键创建索引。</p>
+<p>思路很简单：在B-Tree基础上创建一个伪哈希索引。这和真正的哈希索引不是一回事，因为还是使用B-Tree进行查找，但是它使用哈希值而不是键本身进行索引查找。你需要做的就是在查询的WHERE子句中手动指定使用哈希函数。</p>
+<h2 id="索引的优点"><a href="#索引的优点" class="headerlink" title="索引的优点"></a>索引的优点</h2><ol>
+<li>索引大大减少了服务器需要扫描的数据量。</li>
+<li>索引可以帮助服务器避免排序和临时表。</li>
+<li>索引可以将随机I/O变为顺序I/O。</li>
+</ol>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/06/22/mysql_index/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
+    <article id="post-mail_protocol" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/01/27/mail_protocol/">基础邮件协议</a>
+    </h1>
+  
+
+        
+        <a href="/2015/01/27/mail_protocol/" class="archive-article-date">
   	<time datetime="2015-01-27T04:43:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-01-27</time>
 </a>
         
@@ -202,11 +338,11 @@
 </tr>
 <tr>
 <td style="text-align:center"><code>mail&lt;SP&gt;From:&lt;reverse-path&gt;&lt;CRLF&gt;</code></td>
-<td>此命令用于指定邮件发送者的邮箱地址，参数<code>&lt;reverse-path&gt;</code>表示发件人的邮箱地址。例：mail From:<a href="&#109;&#x61;&#x69;&#108;&#116;&#111;&#58;&#x74;&#x65;&#x73;&#x74;&#x31;&#x40;&#x73;&#x69;&#110;&#97;&#46;&#99;&#x6f;&#x6d;">&#x74;&#x65;&#x73;&#x74;&#x31;&#x40;&#x73;&#x69;&#110;&#97;&#46;&#99;&#x6f;&#x6d;</a></td>
+<td>此命令用于指定邮件发送者的邮箱地址，参数<code>&lt;reverse-path&gt;</code>表示发件人的邮箱地址。例：mail From:<a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#116;&#x65;&#115;&#116;&#49;&#64;&#x73;&#x69;&#110;&#97;&#46;&#x63;&#111;&#109;">&#116;&#x65;&#115;&#116;&#49;&#64;&#x73;&#x69;&#110;&#97;&#46;&#x63;&#111;&#109;</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><code>rcpt&lt;SP&gt;To:&lt;forword-path&gt;&lt;CRLF&gt;</code></td>
-<td>此命令用于指定邮件接收者的邮箱地址，参数<code>&lt;forword-path&gt;</code>表示接收者的邮件地址。如果邮件要发送给多个接收者，那么应使用多条<code>rcpt&lt;SP&gt;To</code>命令来分别指定每一个接收者的邮箱地址。例：rcpt To:<a href="&#109;&#97;&#105;&#x6c;&#116;&#x6f;&#x3a;&#116;&#x65;&#115;&#x74;&#50;&#x40;&#x73;&#105;&#x6e;&#x61;&#46;&#x63;&#x6f;&#x6d;">&#116;&#x65;&#115;&#x74;&#50;&#x40;&#x73;&#105;&#x6e;&#x61;&#46;&#x63;&#x6f;&#x6d;</a></td>
+<td>此命令用于指定邮件接收者的邮箱地址，参数<code>&lt;forword-path&gt;</code>表示接收者的邮件地址。如果邮件要发送给多个接收者，那么应使用多条<code>rcpt&lt;SP&gt;To</code>命令来分别指定每一个接收者的邮箱地址。例：rcpt To:<a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#x74;&#x65;&#115;&#116;&#x32;&#64;&#x73;&#105;&#110;&#97;&#x2e;&#x63;&#111;&#x6d;">&#x74;&#x65;&#115;&#116;&#x32;&#64;&#x73;&#105;&#110;&#97;&#x2e;&#x63;&#111;&#x6d;</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><code>data&lt;CRLF&gt;</code></td>
@@ -407,7 +543,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/01/27/new-page/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/01/27/mail_protocol/">展开全文 >></a>
         </p>
       
 
@@ -425,19 +561,19 @@
 
 
   
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+    <article id="post-hello_world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/03/hello-world/">hello world</a>
+      <a class="article-title" href="/2015/01/03/hello_world/">hello world</a>
     </h1>
   
 
         
-        <a href="/2015/01/03/hello-world/" class="archive-article-date">
+        <a href="/2015/01/03/hello_world/" class="archive-article-date">
   	<time datetime="2015-01-03T14:02:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-01-03</time>
 </a>
         
@@ -471,7 +607,7 @@
 
       
         <p class="article-more-link">
-          <a class="article-more-a" href="/2015/01/03/hello-world/">展开全文 >></a>
+          <a class="article-more-a" href="/2015/01/03/hello_world/">展开全文 >></a>
         </p>
       
 
@@ -583,6 +719,10 @@
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">邮件协议</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">数据库</a>
               </li>
             
             <div class="clearfix"></div>

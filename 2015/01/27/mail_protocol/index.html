@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | vayne</title>
+  <title>基础邮件协议 | vayne</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vayne 个人主页 生活记录 知识分享">
-<meta property="og:type" content="website">
-<meta property="og:title" content="vayne">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="SMTP SMTP（Simple Mail Transfer Protocol，简单邮件传输协议）定义了邮件客户端与SMTP服务器之间，以及两台SMTP服务器之间的通信规则。SMTP协议的通信双方采用一问一答的命令/响应形式进行对话,SMTP协议定义了对话的规则和所有命令/响应的语法格式。SMTP协议分为标准SMTP协议和扩展SMTP协议（ESMTP，Extension Simple Mail T">
+<meta name="keywords" content="邮件协议">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基础邮件协议">
+<meta property="og:url" content="http://yoursite.com/2015/01/27/mail_protocol/index.html">
 <meta property="og:site_name" content="vayne">
-<meta property="og:description" content="vayne 个人主页 生活记录 知识分享">
+<meta property="og:description" content="SMTP SMTP（Simple Mail Transfer Protocol，简单邮件传输协议）定义了邮件客户端与SMTP服务器之间，以及两台SMTP服务器之间的通信规则。SMTP协议的通信双方采用一问一答的命令/响应形式进行对话,SMTP协议定义了对话的规则和所有命令/响应的语法格式。SMTP协议分为标准SMTP协议和扩展SMTP协议（ESMTP，Extension Simple Mail T">
+<meta property="og:updated_time" content="2017-02-05T14:42:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vayne">
-<meta name="twitter:description" content="vayne 个人主页 生活记录 知识分享">
+<meta name="twitter:title" content="基础邮件协议">
+<meta name="twitter:description" content="SMTP SMTP（Simple Mail Transfer Protocol，简单邮件传输协议）定义了邮件客户端与SMTP服务器之间，以及两台SMTP服务器之间的通信规则。SMTP协议的通信双方采用一问一答的命令/响应形式进行对话,SMTP协议定义了对话的规则和所有命令/响应的语法格式。SMTP协议分为标准SMTP协议和扩展SMTP协议（ESMTP，Extension Simple Mail T">
   
     <link rel="alternative" href="/atom.xml" title="vayne" type="application/atom+xml">
   
@@ -158,84 +160,238 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-mail_protocol" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/06/22/mysql_index/" class="archive-article-date">
-  	<time datetime="2017-06-22T03:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-06-22</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/06/22/mysql_index/">MySQL索引</a>
+    <h1 class="article-title" itemprop="name">
+      基础邮件协议
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">数据库</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/01/27/mail_protocol/" class="archive-article-date">
+        
+        <a href="/2015/01/27/mail_protocol/" class="archive-article-date">
   	<time datetime="2015-01-27T04:43:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-01-27</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/27/mail_protocol/">基础邮件协议</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="SMTP"><a href="#SMTP" class="headerlink" title="SMTP"></a>SMTP</h2><blockquote>
+<p><strong>SMTP</strong>（Simple Mail Transfer Protocol，简单邮件传输协议）定义了邮件客户端与SMTP服务器之间，以及两台SMTP服务器之间的通信规则。SMTP协议的通信双方采用一问一答的命令/响应形式进行对话,SMTP协议定义了对话的规则和所有命令/响应的语法格式。SMTP协议分为标准SMTP协议和扩展SMTP协议（ESMTP，Extension Simple Mail Transfer Protocol），标准SMTP协议是1982年在RFC821文档中定义的，而扩展SMTP协议是1995年在RFC1869文档中定义的。扩展SMTP协议在标准SMTP协议基础上的改动非常小，主要增加了邮件安全方面的认证功能，人们现在所说的SMTP协议基本上都是指扩展SMTP协议。</p>
+</blockquote>
+<p>SMTP服务器默认的网络监听端口号为25，协议中一共定义了18条命令，发出一封电子邮件的过程通常只需要使用其中的6条命令。下表列出了这6条命令，并描述了其语法格式及功能说明，其中，<code>&lt;SP&gt;</code>代表空格，<code>&lt;CRLF&gt;</code>代表回车和换行。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">SMTP命令及格式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>ehlo&lt;SP&gt;&lt;domain&gt;&lt;CRLF&gt;</code></td>
+<td>ehlo命令是SMTP邮件发送程序与SMTP邮件接收程序建立连接后必须发送的第一条SMPT命令，参数<code>&lt;domain&gt;</code>表示SMTP邮件发送者的主机名。ehlo命令用于替代传统SMTP协议中的helo命令。例：ehlo testname（主机名）</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>auth&lt;SP&gt;&lt;para&gt;&lt;CRLF&gt;</code></td>
+<td>如果SMTP邮件接收程序需要SMTP邮件发送程序进行认证时，它会向SMTP发送程序提示它所采用的认证方式，SMTP邮件发送程序接着应该使用这个命令回应SMTP邮件接收程序，参数<para>表示回应的认证方式，通常是SMTP邮件接收程序先前提示的认证方式。例：auth login（以login方式验证）</para></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>mail&lt;SP&gt;From:&lt;reverse-path&gt;&lt;CRLF&gt;</code></td>
+<td>此命令用于指定邮件发送者的邮箱地址，参数<code>&lt;reverse-path&gt;</code>表示发件人的邮箱地址。例：mail From:<a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#116;&#x65;&#115;&#116;&#49;&#64;&#x73;&#x69;&#110;&#97;&#46;&#x63;&#111;&#109;">&#116;&#x65;&#115;&#116;&#49;&#64;&#x73;&#x69;&#110;&#97;&#46;&#x63;&#111;&#109;</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>rcpt&lt;SP&gt;To:&lt;forword-path&gt;&lt;CRLF&gt;</code></td>
+<td>此命令用于指定邮件接收者的邮箱地址，参数<code>&lt;forword-path&gt;</code>表示接收者的邮件地址。如果邮件要发送给多个接收者，那么应使用多条<code>rcpt&lt;SP&gt;To</code>命令来分别指定每一个接收者的邮箱地址。例：rcpt To:<a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#x74;&#x65;&#115;&#116;&#x32;&#64;&#x73;&#105;&#110;&#97;&#x2e;&#x63;&#111;&#x6d;">&#x74;&#x65;&#115;&#116;&#x32;&#64;&#x73;&#105;&#110;&#97;&#x2e;&#x63;&#111;&#x6d;</a></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>data&lt;CRLF&gt;</code></td>
+<td>此命令用于表示SMTP邮件发送程序准备开始传送邮件内容，在这个命令后面发送的所有数据将被当做邮件内容，直至遇到<code>&lt;CRLF&gt;.&lt;CRLF&gt;</code>标识符，则表示邮件内容结束。</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>quit&lt;CRLF&gt;</code></td>
+<td>此命令表示要结束邮件发送过程，SMTP邮件接受程序接收到此命令后，将关闭与SMTP邮件发送程序的网络连接。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="POP3"><a href="#POP3" class="headerlink" title="POP3"></a>POP3</h2><blockquote>
+<p><strong>POP3</strong>（Post Office Protocol - Version 3，邮局协议版本3）是TCP/IP协议族中的一员，由RFC1939 定义。本协议主要用于支持使用客户端远程管理在服务器上的电子邮件。提供了SSL加密的POP3协议被称为POP3S。</p>
+<p>POP 协议支持“离线”邮件处理。其具体过程是：邮件发送到服务器上，电子邮件客户端调用邮件客户机程序以连接服务器，并下载所有未阅读的电子邮件。这种离线访问模式是一种存储转发服务，将邮件从邮件服务器端送到个人终端机器上，一般是PC机或 MAC。一旦邮件发送到 PC 机或MAC上，邮件服务器上的邮件将会被删除。但目前的POP3邮件服务器大都可以“只下载邮件，服务器端并不删除”，也就是改进的POP3协议。</p>
+</blockquote>
+<p>POP3协议采用的网络监听端口号默认为110，协议中共定义12条POP3命令，邮件客户端通过这些命令来检索和获取用户电子邮箱中的邮件信息。下表列出了这12条命令。</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">命令</th>
+<th style="text-align:center">参数</th>
+<th style="text-align:center">状态</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">　<code>USER</code></td>
+<td style="text-align:center"><code>username</code></td>
+<td style="text-align:center">认可</td>
+<td><code>username</code>表示收件人的账号名称，此命令与下面的pass命令若成功，将导致状态转换</td>
+</tr>
+<tr>
+<td style="text-align:center">　<code>PASS</code></td>
+<td style="text-align:center"><code>password</code></td>
+<td style="text-align:center">认可</td>
+<td><code>password</code>表示收件人账户的密码</td>
+</tr>
+<tr>
+<td style="text-align:center">　<code>APOP</code></td>
+<td style="text-align:center"><code>Name,Digest</code></td>
+<td style="text-align:center">认可</td>
+<td>用于替代<code>user</code>和<code>pass</code>命令，它以MD5数字摘要的形式向POP3邮件服务器提交账户密码</td>
+</tr>
+<tr>
+<td style="text-align:center">　<code>STAT</code></td>
+<td style="text-align:center"><code>None</code></td>
+<td style="text-align:center">处理</td>
+<td>请求服务器发回关于邮箱的统计，如邮件总数和总字节数</td>
+</tr>
+<tr>
+<td style="text-align:center">　<code>UIDL</code></td>
+<td style="text-align:center"><code>[Msg#]</code></td>
+<td style="text-align:center">处理</td>
+<td>返回邮件的唯一标识符，POP3会话的每个标识符都是唯一的，参数<code>msg#</code>表示邮件的序号</td>
+</tr>
+<tr>
+<td style="text-align:center">　<code>LIST</code></td>
+<td style="text-align:center"><code>[Msg#]</code></td>
+<td style="text-align:center">处理</td>
+<td>列出邮箱中的邮件信息（包括邮件数量和每个邮件的大小），若参数<code>msg#</code>指定时，列出具体序号的邮件信息</td>
+</tr>
+<tr>
+<td style="text-align:center">　<code>RETR</code></td>
+<td style="text-align:center"><code>[Msg#]</code></td>
+<td style="text-align:center">处理</td>
+<td>返回由参数标识的邮件的全部文本</td>
+</tr>
+<tr>
+<td style="text-align:center">　<code>DELE</code></td>
+<td style="text-align:center"><code>[Msg#]</code></td>
+<td style="text-align:center">处理</td>
+<td>服务器将由参数标识的邮件标记为删除，由quit命令执行</td>
+</tr>
+<tr>
+<td style="text-align:center">　<code>RSET</code></td>
+<td style="text-align:center"><code>None</code></td>
+<td style="text-align:center">处理</td>
+<td>服务器将重置所有标记为删除的邮件，用于撤消DELE命令</td>
+</tr>
+<tr>
+<td style="text-align:center">　<code>TOP</code></td>
+<td style="text-align:center"><code>[Msg#]</code></td>
+<td style="text-align:center">处理</td>
+<td>服务器将返回由参数标识的邮件前n行内容，n必须是正整数</td>
+</tr>
+<tr>
+<td style="text-align:center">　<code>NOOP</code></td>
+<td style="text-align:center"><code>None</code></td>
+<td style="text-align:center">处理</td>
+<td>服务器返回一个肯定的响应，用于检测POP3客户端与POP3服务器的连接情况</td>
+</tr>
+<tr>
+<td style="text-align:center">　<code>QUIT</code></td>
+<td style="text-align:center"><code>None</code></td>
+<td style="text-align:center">更新</td>
+<td>退出并删除所有设置了删除标志的邮件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="IMAP"><a href="#IMAP" class="headerlink" title="IMAP"></a>IMAP</h2><blockquote>
+<p><strong>IMAP</strong>（Internet Message Access Protocol）协议是对POP3协议的一种扩展，定义了邮件客户端与邮件服务器的通信规则。IMAP协议在RFC2060文档中定义，目前使用的是第4个版本，所以也称之为IMAP4。IMAP协议相对于POP3协议而言，它定义了更为强大的邮件接收功能，主要体现在以下一些方面：</p>
+</blockquote>
+<ol>
+<li>IMAP具有摘要浏览功能，可以让用户在读完所有邮件的主题、发件人、大小等信息后，再由客户做出是否下载或直接在服务器上删除的决定。</li>
+<li>IMAP可以让用户有选择性地下载邮件附件。例如一封邮件包含3个附件，如果用户确定其中只有2个附件对自己有用，就可以只下载这2个附件，而不必下载整封邮件，从而节省了下载时间。</li>
+<li>IMAP可以让用户在邮件服务器上创建自己的邮件夹，保存各个邮件。</li>
+</ol>
+<h2 id="MIME"><a href="#MIME" class="headerlink" title="MIME"></a>MIME</h2><blockquote>
+<p><strong>MIME</strong>（Multipurpose Internet Mail Extensions,多用途互联网邮件扩展类型）是目前互联网电子邮件普遍遵循的邮件技术规范。在MIME出现之前，互联网电子邮件主要遵循由RFC 822所制定的标准，电子邮件一般只用来传递基本的ASCII码文本信息，MIME在 RFC 822的基础上对电子邮件规范做了大量的扩展，引入了新的格式规范和编码方式，在MIME的支持下，图像、声音、动画等二进制文件都可方便的通过电子邮件来进行传递，极大地丰富了电子邮件的功能。目前互联网上使用的基本都是遵循MIME规范的电子邮件。</p>
+<p>电子邮件的分析和读取一般都通过专用的邮件软件来实现，比如Outlook、Foxmail，但这种第三方软件无法和开发者自己的系统整合，通过对MIME邮件格式的分析，我们可以在自己的应用程序中实现对MIME邮件所含信息的读取。</p>
+</blockquote>
+<h3 id="MIME邮件格式分析"><a href="#MIME邮件格式分析" class="headerlink" title="MIME邮件格式分析"></a>MIME邮件格式分析</h3><p><small> &emsp;MIME技术规范的完整内容由RFC 2045-2049定义，包括了信息格式、媒体类型、编码方式等各方面的内容，这里我们只介绍其中的一些关键的格式和规范，通过了解这些格式规范，我们就可以实现以编程的方式从MIME邮件中提取基本的邮件信息。</small></p>
+<h4 id="域"><a href="#域" class="headerlink" title="域"></a>域</h4><p> <small>    &emsp;MIME邮件的基本信息、格式信息、编码方式等重要内容都记录在邮件内的各种域中，域的基本格式：{域名}：{内容}，域由域名后面跟“：”再加上域的信息内容构成，一条域在邮件中占一行或者多行，域的首行左侧不能有空白字符，比如空格或者制表符，占用多行的域其后续行则必须以空白字符开头。域的信息内容中还可以包含属性，属性之间以“;”分隔，属性的格式如下：{属性名称}=”{属性值}”。</small><br> <small>    &emsp;以下是一封示例邮件的内容，其中行1-5、行8都是单行的域，行6-7则是一个多行的域，并带有一个名为charset的属性，属性值为us-ascii。</small><br> <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">From： ”suntao” &lt;suntao@fimmu.com&gt;</div><div class="line">To： &lt;yxj@fimmu.com&gt;</div><div class="line">Subject： hello world</div><div class="line">Date： Mon， 9 Oct 2006 16：51：34 +0800</div><div class="line">MIME-Version： 1.0</div><div class="line">Content-Type： text/plain;</div><div class="line">          charset=&quot;us-ascii&quot;</div><div class="line">Date： Mon， 9 Oct 2006 16：48：25 +0800</div><div class="line"></div><div class="line">Hello world</div></pre></td></tr></table></figure></p>
+<p> <small>    &emsp;邮件规范中定义了大量域，分别用来存储同邮件相关的各种信息，比如发件人的名字和邮件地址信息存储在From域中，收件人的邮件地址信息存储在To域中，开发人员可通过查询RFC文档得到完整的邮件域定义列表。</small></p>
+<h4 id="Content-Type域"><a href="#Content-Type域" class="headerlink" title="Content-Type域"></a>Content-Type域</h4><p> <small>&emsp;Content-Type域定义了邮件中所含各种内容的类型以及相关属性。邮件所含的文本、超文本、附件等信息都按照对应Content-Type域所指定的媒体类型、存储位置、编码方式等信息存储在邮件中。Content-Type域基本格式：Content-Type：{主类型}/{子类型}。</small><br><small>&emsp;示例邮件中的行6-7就是一个Content-Type域，主类型为text，子类型为plain，字符集属性为us-ascii。</small></p>
+<table>
+<thead>
+<tr>
+<th>主类型</th>
+<th>常见属性</th>
+<th>参数含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>text</td>
+<td>charset</td>
+<td>文本信息所使用的字符集</td>
+</tr>
+<tr>
+<td>image</td>
+<td>name</td>
+<td>图像的名称</td>
+</tr>
+<tr>
+<td>application</td>
+<td>name</td>
+<td>应用程序的名称</td>
+</tr>
+<tr>
+<td>multipart</td>
+<td>boundary</td>
+<td>邮件分段边界标识</td>
+</tr>
+</tbody>
+</table>
+<h4 id="multipart类型"><a href="#multipart类型" class="headerlink" title="multipart类型"></a>multipart类型</h4><p><small>&emsp;MIME邮件中各种不同类型的内容是分段存储的，各个段的排列方式、位置信息都通过Content-Type域的multipart类型来定义。multipart类型主要有三种子类型：mixed、alternative、related。</small></p>
+<h5 id="multipart类型基本格式"><a href="#multipart类型基本格式" class="headerlink" title="multipart类型基本格式"></a>multipart类型基本格式</h5><ul>
+<li><p>multipart/mixed类型<br><small>&emsp;如果一封邮件中含有附件，那邮件的Content-Type域中必须定义multipart/mixed类型，邮件通过multipart/mixed类型中定义的boundary标识将附件内容同邮件其它内容分成不同的段。基本格式如下：</small></p>
+<pre><code>Content-Type： multipart/alternative;
+    boundary=&quot;{分段标识}&quot;
+</code></pre></li>
+<li><p>multipart/alternative类型<br><small>&emsp;MIME邮件中除了可以携带各种附件外，还可以将其它内容以内嵌资源的方式存储在邮件中。比如我们在发送html格式的邮件内容时，可能使用图像作为html的背景，html文本会被存储在alternative段中，而作为背景的图像则会存储在multipart/related类型定义的段中。基本格式如下：</small></p>
+<pre><code>Content-Type： multipart/alternative;
+    boundary=&quot;{分段标识}&quot;
+</code></pre></li>
+<li><p>multipart/related类型<br><small>&emsp; MIME邮件中除了可以携带各种附件外，还可以将其它内容以内嵌资源的方式存储在邮件中。比如我们在发送html格式的邮件内容时，可能使用图像作为html的背景，html文本会被存储在alternative段中，而作为背景的图像则会存储在multipart/related类型定义的段中。基本格式如下：</small></p>
+<pre><code>Content-Type： multipart/related;
+    type=&quot;multipart/alternative&quot;;
+    boundary=&quot;{分段标识}&quot;
+</code></pre></li>
+</ul>
+<h5 id="multipart类型的boundary属性"><a href="#multipart类型的boundary属性" class="headerlink" title="multipart类型的boundary属性"></a>multipart类型的boundary属性</h5><p><small>&emsp;multipart的子类型中都定义了各自的boundary属性，邮件使用这些boundary中定义的字符串作为标识，将邮件内容分成不同的段，段体内的每个子段以“–”+boundary行开始，父段则以“–”+boundary+“–”行结束，不同段之间用空行分隔。</small></p>
+<h5 id="multipart类型的层次关系"><a href="#multipart类型的层次关系" class="headerlink" title="multipart类型的层次关系"></a>multipart类型的层次关系</h5><p><small>&emsp;MIME邮件通过多个Content-Type域的multipart类型将内容分成不同的段，这些段在邮件中不是线形顺序排列的，而是存在一个互相包含的层次关系，multipart子类型之间的层次关系结构如下：</small></p>
+<blockquote>
+<p>Multipart/mixed</p>
+<blockquote>
+<p>Multipart/related</p>
+<blockquote>
+<p>Multipart/alternative<br>纯文本正文<br>超文本正文</p>
+</blockquote>
+<p>内嵌资源</p>
+</blockquote>
+<p>附件</p>
+</blockquote>
+<h2 id="参考资料："><a href="#参考资料：" class="headerlink" title="参考资料："></a>参考资料：</h2><p>[1]Java邮件开发详解（张孝祥、方立勋编著）<br>[2]<a href="http://blog.csdn.net/bxf0011/article/details/1635266" target="_blank" rel="external">pop3命令</a><br>[3]<a href="http://blog.csdn.net/cxm_hwj/article/details/6690058" target="_blank" rel="external">MIME详解</a></p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -247,57 +403,97 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://yoursite.com/2015/01/27/mail_protocol/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2015/01/03/hello_world/" class="archive-article-date">
-  	<time datetime="2015-01-03T14:02:18.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2015-01-03</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/01/03/hello_world/">hello world</a>
-    </h1>
+    <a href="/2015/01/03/hello_world/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          hello world
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2017/06/22/mysql_index/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL索引</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+  
+    <div class="duoshuo"></div>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">hello world</a>
-        		</li>
-      		
-		</ul>
-	</div>
 
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -320,8 +516,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
