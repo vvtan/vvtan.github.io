@@ -160,6 +160,211 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-区块链原理简介" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/03/14/区块链原理简介/">区块链原理简介</a>
+    </h1>
+  
+
+        
+        <a href="/2018/03/14/区块链原理简介/" class="archive-article-date">
+  	<time datetime="2018-03-14T09:41:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-14</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="区块链原理"><a href="#区块链原理" class="headerlink" title="区块链原理"></a>区块链原理</h2><h3 id="数字货币和区块链原理简介"><a href="#数字货币和区块链原理简介" class="headerlink" title="数字货币和区块链原理简介"></a>数字货币和区块链原理简介</h3><ul>
+<li>数字货币：数字货币是基于数学加密原理构建的不可伪造的货币系统</li>
+<li>比特币：第一个基于数学加密原理构建的去中心化分布式货币系统<ul>
+<li>历史：<ul>
+<li>2008年10月：加密学论坛发表了基于p2p协议来构建分布式加密数字货币系统的文章（比特币的白皮书）</li>
+<li>2008年11月：比特币代码发布</li>
+<li>2009年1月：中本聪挖出比特币第一个区块，创世区块</li>
+</ul>
+</li>
+<li>特征：<ul>
+<li>去中心化</li>
+<li>不可伪造</li>
+<li>分布式</li>
+<li>可追溯</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>货币历史：物物交换、贝壳（急需一般等价物）、贵金属（冶炼技术发展）、纸币（金属沉重）、电子货币（方便）</li>
+</ul>
+<p>法币由政府发行，强制推行流通；比特币全球p2p网络发行流通，无需中央节点；钱包节点把交易发送到网络，旷工节点把网络交易打包到区块链中，从中赚取挖矿的费用和手续费；比特币数量记录在全网总账本中（区块链），每个节点都复制完整的区块链数据</p>
+<ul>
+<li>比特币网络运行机制：<ul>
+<li>用户创建交易并签名发送给P2P网络</li>
+<li>矿工验证交易后将一批交易打包成新区块并获取挖矿奖励</li>
+<li>其他节点验证并接受或拒绝该区块</li>
+<li>每个新区快都指向前一个区块形成区块链</li>
+<li>全网所有账户余额与全部历史交易记录都保存在区块链中</li>
+</ul>
+</li>
+</ul>
+<h3 id="区块链记账原理"><a href="#区块链记账原理" class="headerlink" title="区块链记账原理"></a>区块链记账原理</h3><ul>
+<li>区块链就是一个不断增长的全网总账本</li>
+<li>每个节点都拥有完整的区块链</li>
+<li>节点总是信任最长的区块链</li>
+<li>伪造区块链需要拥有超过51%的全网算力</li>
+</ul>
+<p><img src="media/15199574437623/15202091021691.jpg" alt=""></p>
+<p><img src="media/15199574437623/15202090459144.jpg" alt=""></p>
+<ul>
+<li>安全哈希算法的特点<ul>
+<li>是一个单向函数，h=H(x)<ul>
+<li>通过输入可以很容易计算出输出</li>
+<li>通过输出无法反推输入，只能暴力穷举</li>
+</ul>
+</li>
+<li>可以把任意长度的输入数据转化为固定长度的输出</li>
+<li>碰撞率低，如果x!=y，而H(x)=H(y)，则发生碰撞</li>
+<li>输出无规律，输入数据任意一个bit的改动会导致输出完全不同</li>
+</ul>
+</li>
+</ul>
+<p><img src="media/15199574437623/15202105789048.jpg" alt=""></p>
+<ul>
+<li><p>比特币使用的哈希算法：</p>
+<ul>
+<li>SHA-256(理论碰撞概率，尝试2的130次方随机输入，有99.8%的概率碰撞，2的130次方=1361万亿亿亿亿)</li>
+<li><p>RipeMD 160</p>
+<blockquote>
+<p>hash256 = sha256(sha256(data))<br>hash160 = ripemd160(sha256(data))</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="media/15199574437623/15202107205525.jpg" alt=""></p>
+<p><img src="media/15199574437623/15202107956318.jpg" alt=""></p>
+<ul>
+<li>结论：<ul>
+<li>区块链依靠安全的哈希算法保证所有区块数据不可更改</li>
+<li>工作量证明机制保证修改区块链的难度非常巨大从而无法实现</li>
+</ul>
+</li>
+</ul>
+<h3 id="去中心化交易原理"><a href="#去中心化交易原理" class="headerlink" title="去中心化交易原理"></a>去中心化交易原理</h3><p>传统的电子交易需用通过银行这样的信任结构，保证交易的安全，不存在一方到账，一方没有付款的情况。</p>
+<p>签名是为了确认某笔交易确实是由某个人做出的，比如在签合同的时候会通过笔迹来核对身份，计算机中是通过数字签名，私钥、公钥<br>发消息方：<br>message = “hello”<br>signature = sign(message, SK)<br>接消息方：<br>verify(message, signature, PK)</p>
+<ul>
+<li><p>数字签名的作用：</p>
+<ul>
+<li>签名不可伪造</li>
+<li>消息不可篡改</li>
+<li>签名不可抵赖</li>
+</ul>
+</li>
+<li><p>常用的数字签名算法</p>
+<ul>
+<li>RSA</li>
+<li>DSA</li>
+<li>ECDSA</li>
+</ul>
+</li>
+<li><p>比特币采用ECDSA算法</p>
+<ul>
+<li>私钥是1~2的256次方随机数</li>
+<li>公钥是由私钥根据ECDSA算法推算出来的</li>
+<li>通过公钥无法反推私钥（只能暴力破解）</li>
+</ul>
+</li>
+<li><p>比特币钱包分类</p>
+<ul>
+<li>本地钱包</li>
+<li>在线钱包</li>
+<li>纸钱包</li>
+<li>脑钱包</li>
+</ul>
+</li>
+</ul>
+<p>钱包帮助用户保存私钥，私钥是一个256位的整数，用16进制表示也需要64个字符，为了在使用上方便，会使用一些编码方式让较少的字符就能表示私钥，具体不展开阐述。</p>
+<ul>
+<li>结论：<ul>
+<li>比特币使用数字签名保证零信任可靠的P2P交易</li>
+<li>私钥是花费比特币的唯一手段</li>
+<li>钱包软件用来帮助用户管理私钥</li>
+<li>所有交易被记录在区块链中，可以通过公钥来查询</li>
+<li>比特币网络没有用户的概念，任何人都能通过公钥查询比特币余额，但却无法得知这串公钥是谁的</li>
+</ul>
+</li>
+</ul>
+<h3 id="PoW机制与挖矿原理"><a href="#PoW机制与挖矿原理" class="headerlink" title="PoW机制与挖矿原理"></a>PoW机制与挖矿原理</h3><ul>
+<li>挖矿定义</li>
+</ul>
+<p>比特币网络中存在这样一些节点，它们试图把新的交易打包成新的区块，并附加的区块链上，这样的节点俗称矿工，每成功打包一个新区块，矿工就会获得奖励，这样的行为叫做挖矿。在挖矿完成后需要判断挖矿的奖金要给谁，这个的实现是矿工在打包区块的时候将奖金的发放写入交易列表，从而给矿工的地址添加相应奖金数量比特币。</p>
+<ul>
+<li>挖矿原理：工作量证明（PoW：proof of work）<ul>
+<li>什么是工作量证明<ul>
+<li>证明自己做了一定工作量</li>
+<li>其他人可以简单验证该工作量，从而认可你的工作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="media/15199574437623/15203344234189.jpg" alt=""></p>
+<p>比特币用计算哈希作为矿工的工作证明，通过不断调整Nonce字段，计算出不同的哈希值，当满足哈希值&lt;难度值时，就是一个有效哈希，该区块就可作为一个有效区块写入区块链，并广播到其他节点。比特币会动态调整难度值，每2015个区块会调整一次，让新区块的生成速度保持在10分钟左右一个。</p>
+<ul>
+<li><p>为什么别人无法窃取矿工的工作成果呢？</p>
+<ul>
+<li>merkle hash锁定了该区块的所有交易</li>
+<li>该区块的第一笔是矿工奖励的发放记录，收款地址是矿工的地址</li>
+</ul>
+</li>
+<li><p>比特币挖矿</p>
+<ul>
+<li>比特币被限制总量约2100万个比特币</li>
+<li>初始挖矿奖励为50个比特币每区块，每4年减半</li>
+</ul>
+</li>
+<li><p>结论：</p>
+<ul>
+<li>比特币挖矿是一种带经济激励的工作量证明机制</li>
+<li>工作量证明保证了修改区块链需要极大的成本</li>
+<li>比特币网络的安全依靠算力来保证</li>
+</ul>
+</li>
+</ul>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/03/14/区块链原理简介/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+
+
+
+  
     <article id="post-mysql_index" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -338,11 +543,11 @@
 </tr>
 <tr>
 <td style="text-align:center"><code>mail&lt;SP&gt;From:&lt;reverse-path&gt;&lt;CRLF&gt;</code></td>
-<td>此命令用于指定邮件发送者的邮箱地址，参数<code>&lt;reverse-path&gt;</code>表示发件人的邮箱地址。例：mail From:<a href="&#x6d;&#97;&#x69;&#x6c;&#116;&#x6f;&#x3a;&#116;&#x65;&#115;&#116;&#49;&#64;&#x73;&#x69;&#110;&#97;&#46;&#x63;&#111;&#109;">&#116;&#x65;&#115;&#116;&#49;&#64;&#x73;&#x69;&#110;&#97;&#46;&#x63;&#111;&#109;</a></td>
+<td>此命令用于指定邮件发送者的邮箱地址，参数<code>&lt;reverse-path&gt;</code>表示发件人的邮箱地址。例：mail From:<a href="&#x6d;&#97;&#105;&#108;&#x74;&#x6f;&#58;&#116;&#101;&#x73;&#x74;&#x31;&#64;&#115;&#x69;&#x6e;&#x61;&#x2e;&#x63;&#x6f;&#x6d;">&#116;&#101;&#x73;&#x74;&#x31;&#64;&#115;&#x69;&#x6e;&#x61;&#x2e;&#x63;&#x6f;&#x6d;</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><code>rcpt&lt;SP&gt;To:&lt;forword-path&gt;&lt;CRLF&gt;</code></td>
-<td>此命令用于指定邮件接收者的邮箱地址，参数<code>&lt;forword-path&gt;</code>表示接收者的邮件地址。如果邮件要发送给多个接收者，那么应使用多条<code>rcpt&lt;SP&gt;To</code>命令来分别指定每一个接收者的邮箱地址。例：rcpt To:<a href="&#109;&#x61;&#105;&#x6c;&#x74;&#111;&#58;&#x74;&#x65;&#115;&#116;&#x32;&#64;&#x73;&#105;&#110;&#97;&#x2e;&#x63;&#111;&#x6d;">&#x74;&#x65;&#115;&#116;&#x32;&#64;&#x73;&#105;&#110;&#97;&#x2e;&#x63;&#111;&#x6d;</a></td>
+<td>此命令用于指定邮件接收者的邮箱地址，参数<code>&lt;forword-path&gt;</code>表示接收者的邮件地址。如果邮件要发送给多个接收者，那么应使用多条<code>rcpt&lt;SP&gt;To</code>命令来分别指定每一个接收者的邮箱地址。例：rcpt To:<a href="&#109;&#97;&#x69;&#108;&#x74;&#x6f;&#x3a;&#116;&#x65;&#x73;&#x74;&#x32;&#64;&#x73;&#105;&#x6e;&#97;&#46;&#x63;&#x6f;&#x6d;">&#116;&#x65;&#x73;&#x74;&#x32;&#64;&#x73;&#105;&#x6e;&#97;&#46;&#x63;&#x6f;&#x6d;</a></td>
 </tr>
 <tr>
 <td style="text-align:center"><code>data&lt;CRLF&gt;</code></td>
@@ -635,7 +840,7 @@
   <div class="outer">
     <div id="footer-info">
     	<div class="footer-left">
-    		&copy; 2017 vayne
+    		&copy; 2018 vayne
     	</div>
       	<div class="footer-right">
       		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
